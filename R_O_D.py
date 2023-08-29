@@ -25,6 +25,10 @@ def main():
             'Select video resolution',
             video_resolutions
         )
+        
+        if selected_format == 'webm':
+            st.warning("Warning: The webm format downloads only video without audio.")
+
     elif download_type == 'audio':
         audio_formats = ['mp3', 'wav']
         selected_format = st.selectbox(
@@ -41,7 +45,6 @@ def main():
         try:
             video = YouTube(path)
             st.write("Title of Video: " + video.title)
-            #st.write("Number of Views: " + str(video.views))
 
             if download_type == 'audio':
                 audio_streams = video.streams.filter(only_audio=True, file_extension='mp4')
@@ -67,7 +70,6 @@ def main():
         try:
             video = YouTube(path)
             st.write("Title of Video: " + video.title)
-            #st.write("Number of Views: " + str(video.views))
             st.write("Available Streams:")
             for stream in video.streams:
                 st.write(f"Quality: {stream.resolution}, Format: {stream.subtype}, Type: {stream.type}")
