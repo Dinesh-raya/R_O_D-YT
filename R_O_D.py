@@ -11,7 +11,7 @@ def main():
 
     download_type = st.selectbox(
         'Select type of download',
-        ('video', 'audio')
+        ('only-video', 'audio')
     )
 
     if download_type == 'video':
