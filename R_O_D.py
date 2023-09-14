@@ -11,10 +11,11 @@ def main():
 
     download_type = st.selectbox(
         'Select type of download',
-        ('only-video', 'audio')
+        ('video', 'audio')
     )
 
     if download_type == 'video':
+        st.warning("Note: this app will download only video without audio,still this app is in development stage.Feel free to contribute via email")
         video_formats = ['webm', 'mp4', 'mkv']
         selected_format = st.selectbox(
             'Select video format',
